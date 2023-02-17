@@ -8,6 +8,12 @@ class CommentsService {
 
   async postComment(commentData) {
     const newComment = await dbContext.Comments.create(commentData)
+    return newComment
+  }
+
+  async getCommentByVinylId(vinylId) {
+    const foundComments = await dbContext.Comments.find(vinylId)
+    return foundComments
   }
 }
 
