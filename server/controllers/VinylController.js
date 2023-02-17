@@ -1,3 +1,4 @@
+import { Auth0Provider } from "@bcwdev/auth0provider"
 import { vinylsServices } from "../services/VinylsServices.js"
 import BaseController from "../utils/BaseController.js"
 
@@ -7,6 +8,7 @@ export class VinylController extends BaseController {
         super('/api/vinyls')
         this.router
             .get('', this.getVinyl)
+            .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createVinyl)
     }
 
