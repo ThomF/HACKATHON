@@ -13742,19 +13742,19 @@ main {
   flex-grow: 1;
 }
 
-.albumCover {
-  height: 10vh;
+.incard {
+  max-height: 10vh;
 }
 
 .mycard {
-  background-color: #A2E8DD;
+  background-color: rgba(162, 232, 222, 0.5607843137);
   border-radius: 10px;
   height: 10vh;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .mybackground {
-  background-color: #627c85;
+  background-color: #32373B;
 }
 
 /*# sourceMappingURL=main.css.map */
