@@ -4,7 +4,7 @@ import { dbContext } from "../db/DbContext"
 class VinylsServices {
     async createVinyl(vinylData) {
         const newVinyl = await dbContext.Vinyls.create(vinylData)
-        await newVinyl.populate('')
+        // await newVinyl.populate('')
         return newVinyl
     }
 
