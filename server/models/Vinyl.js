@@ -43,4 +43,13 @@ VinylSchema.virtual('creator', {
   foreignField: '_id',
   justOne: true,
   ref: 'Account'
-})
+});
+
+VinylSchema.virtual('vinylVoter', {
+  localField: '_id',
+  foreignField: 'userId',
+  count: true,
+  ref: 'Vinyls'
+}
+)
+

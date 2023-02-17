@@ -13,7 +13,7 @@ export const CommentSchema = new Schema(
 
 //**** VIRTUAL PROPERTIES ****/
 
-CommentSchema.virtual('comment', {
+CommentSchema.virtual('vinylComment', {
   localField: 'vinylId',
   foreignField: '_id',
   count: true,
