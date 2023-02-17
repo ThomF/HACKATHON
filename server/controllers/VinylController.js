@@ -1,5 +1,6 @@
 import { Auth0Provider } from "@bcwdev/auth0provider"
 import { vinylsServices } from "../services/VinylsServices.js"
+import { votersService } from "../services/VotersService.js"
 import BaseController from "../utils/BaseController.js"
 
 export class VinylController extends BaseController {
@@ -9,7 +10,7 @@ export class VinylController extends BaseController {
         this.router
             .get('', this.getVinyl)
             .get('/:vinylId', this.getVinylId)
-            .get('/:vinylId/')
+            .get('/:vinylId/voters', this.getVotersByVinylId)
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createVinyl)
     }
@@ -39,6 +40,15 @@ export class VinylController extends BaseController {
             const vinylId = req.params.vinylId
             const vinyl = await vinylsServices.getVinylById(vinylId)
             return res.send(vinyl)
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    async getVotersByVinylId(req, res, next) {
+        try {
+            const voters = await votersService.getVotersByVinylId(req.params.vinylId)
+            return res.send(voters)
         } catch (error) {
             next(error)
         }

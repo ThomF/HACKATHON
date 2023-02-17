@@ -2,6 +2,7 @@ import { dbContext } from "../db/DbContext"
 import { BadRequest } from "../utils/Errors.js"
 
 class VinylsServices {
+
     async getVinylById(vinylId) {
         const vinyl = await dbContext.Vinyls.findById(vinylId)
             .populate('creator', 'name picture')
