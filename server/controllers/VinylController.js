@@ -1,4 +1,5 @@
 import { Auth0Provider } from "@bcwdev/auth0provider"
+import { commentsService } from "../services/CommentsService.js"
 import { vinylsServices } from "../services/VinylsServices.js"
 import { votersService } from "../services/VotersService.js"
 import BaseController from "../utils/BaseController.js"
@@ -49,6 +50,15 @@ export class VinylController extends BaseController {
         try {
             const voters = await votersService.getVotersByVinylId(req.params.vinylId)
             return res.send(voters)
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    async getCommentsByCommentId(req, res, next) {
+        try {
+            const comments = await commentsService.getCommentsByCommentId(req.params.commentId)
+            return res.send(comments)
         } catch (error) {
             next(error)
         }

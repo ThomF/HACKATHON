@@ -11,6 +11,11 @@ body {
   background-color: $body-bg;
 }
 
+.headercolor{
+  background-color: #32373B;
+  
+}
+
 main {
   flex-grow: 1;
 }
@@ -28,14 +33,14 @@ main {
 }
 
 .mycard{
-  background-color: #c0dad6;
+  background-color: #e9ffeaac;
   border-radius: 10px;
   height: 10vh;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .mybackground{
-  background-color: #32373B;
+  background-color: #4a5859;
 }
 
 *{
