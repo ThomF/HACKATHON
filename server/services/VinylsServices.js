@@ -6,7 +6,7 @@ class VinylsServices {
     async getVinylById(vinylId) {
         const vinyl = await dbContext.Vinyls.findById(vinylId)
             .populate('creator', 'name picture')
-            .populate('watchCount')
+            .populate('vinylVoter')
         if (!vinyl) {
             throw new BadRequest('Bad Vinyl ID')
         }
@@ -21,7 +21,7 @@ class VinylsServices {
     async getVinyls() {
         const vinyls = await dbContext.Vinyls.find()
             .populate('creator', 'name picture')
-            .populate('watchCount')
+            .populate('vinylVoter')
         return vinyls
     }
 
