@@ -4,7 +4,7 @@ import BaseController from "../utils/BaseController.js"
 export class VinylController extends BaseController {
 
     constructor() {
-        super('/api/vinyl')
+        super('/api/vinyls')
         this.router
             .get('', this.getVinyl)
     }
