@@ -53,3 +53,10 @@ VinylSchema.virtual('vinylVoter', {
 }
 )
 
+VinylSchema.virtual('vinylComment', {
+  localField: '_id',
+  foreignField: 'vinylId',
+  count: true,
+  ref: 'Vinyls'
+
+})
