@@ -24,7 +24,7 @@ CommentSchema.virtual('comment', {
 CommentSchema.virtual('account', {
   localField: 'userId',
   foreignField: '_id',
-  justOne: true,
+  count: true,
   ref: 'Account'
 
 })
