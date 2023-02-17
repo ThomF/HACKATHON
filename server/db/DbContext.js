@@ -6,7 +6,7 @@ class DbContext {
   Values = mongoose.model('Value', ValueSchema);
   Account = mongoose.model('Account', AccountSchema);
 
-  Vinyl = mongoose.model('Vinyl', VinylSchema)
+  Vinyls = mongoose.model('Vinyls', VinylSchema)
 }
 
 export const dbContext = new DbContext()
