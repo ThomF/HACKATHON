@@ -13746,8 +13746,12 @@ main {
   max-height: 10vh;
 }
 
+.headerfont {
+  font-family: "Roboto", sans-serif;
+}
+
 .mycard {
-  background-color: rgba(162, 232, 222, 0.5607843137);
+  background-color: #c0dad6;
   border-radius: 10px;
   height: 10vh;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -13755,6 +13759,10 @@ main {
 
 .mybackground {
   background-color: #32373B;
+}
+
+* {
+  font-family: "Didact Gothic", sans-serif;
 }
 
 /*# sourceMappingURL=main.css.map */
