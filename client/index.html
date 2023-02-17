@@ -12,15 +12,30 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="assets/style/main.css">
   <title>HACKATHON</title>
+  <style>
+    body.debug .container,
+    body.debug .container-fluid {
+      outline: 2px double blue;
+      outline-offset: -2px;
+    }
+
+    body.debug .row {
+      outline: 2px dashed red;
+      outline-offset: -2px;
+    }
+
+    body.debug [class*="col-"] {
+      outline: 2px dotted forestgreen;
+      outline-offset: -3px;
+    }
+  </style>
 </head>
 
-<body>
+<body class="debug mybackground">
   <header>
     <nav class="navbar navbar-dark navbar-expand bg-dark text-light">
       <a class="navbar-brand" href="#">
-        <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
-          loading="lazy">
-        <span class="ml-2">HACKATHON</span>
+        <span class="mx-3 text-center">Mood Music</span>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,22 +71,28 @@
         </div>
       </div>
     </div> -->
-      <div class="container-fluid">
-        <div class="row justify-content-center">
-          <div class="col-8 my-2">
-            <div class="row mycard">
-              <div class="col-5"> picture</div>
-              <div class="col-7">info</div>
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-8 my-2">
+          <div class="row mycard">
+            <div class="col-5">
+              <div class="img-fluid d-flex align-items-center">
+                <img class="albumCover" src="https://thiscatdoesnotexist.com" alt="picture">
+              </div>
             </div>
-          </div>
-          <div class="col-8 my-2">
-            <div class="row mycard">
-              <div class="col-5"> picture</div>
-              <div class="col-7">info</div>
+            <div class="col-7">
+              <p class="">Listen to this song when you're feeling like a true code monkey</p>
             </div>
           </div>
         </div>
+        <div class="col-8 my-2">
+          <div class="row mycard">
+            <div class="col-5"> picture</div>
+            <div class="col-7">info</div>
+          </div>
+        </div>
       </div>
+    </div>
 
 
     <div class="container-fluid">
@@ -81,7 +102,7 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-3 img-fluid">
-                  <img class="albumCover" src="https://thiscatdoesnotexist.com" alt="">
+                  <img class="albumCover" src="https://thiscatdoesnotexist.com" alt="picture">
                 </div>
                 <div class="col-9">
                   <h4 class="card-title">Song Title</h4>

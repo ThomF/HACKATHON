@@ -13743,8 +13743,7 @@ main {
 }
 
 .albumCover {
-  height: 100px;
-  width: 100px;
+  height: 10vh;
 }
 
 .mycard {
