@@ -9,6 +9,7 @@ export class VinylController extends BaseController {
         this.router
             .get('', this.getVinyl)
             .get('/:vinylId', this.getVinylId)
+            .get('/:vinylId/')
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createVinyl)
     }

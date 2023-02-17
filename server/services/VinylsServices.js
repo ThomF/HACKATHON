@@ -19,6 +19,8 @@ class VinylsServices {
 
     async getVinyls() {
         const vinyls = await dbContext.Vinyls.find()
+            .populate('creator', 'name picture')
+            .populate('watchCount')
         return vinyls
     }
 
