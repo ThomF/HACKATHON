@@ -18,7 +18,7 @@ VoterSchema.virtual('Comment', {
   ref: 'Comment'
 })
 
-VoterSchema.virtual('vinyl', {
+VoterSchema.virtual('vinylVote', {
   localField: 'userId',
   foreignField: '_id',
   count: true,
