@@ -10,7 +10,7 @@ export const VinylSchema = new Schema({
   mood: {
     type: String,
     enum: [
-      'Happy',
+      'happy',
       'sad',
       'angry',
       'melancholy',
@@ -28,9 +28,19 @@ export const VinylSchema = new Schema({
   },
   albumCover: { type: String, required: true },
 
-  createrId: { type: String, required: true }
-  //creatorId: { type: Schema.Types.ObjectId, required: true, ref: "Account" }
+  //**** VIRTUAL PROPERTIES ****/
+
+  //createrId: { type: String, required: true }
+  creatorId: { type: Schema.Types.ObjectId, required: true, ref: "Account" }
 
 
-});
+},
+  { timestamps: true, toJSON: { virtuals: true } }
+);
 
+VinylSchema.virtual('creator', {
+  localField: 'creatorId',
+  foreignField: '_id',
+  justOne: true,
+  ref: 'Account'
+})
