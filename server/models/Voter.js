@@ -11,7 +11,7 @@ export const VoterSchema = new Schema(
 
 //**** VIRTUAL PROPERTIES ****/
 
-VoterSchema.virtual('Comment', {
+VoterSchema.virtual('commentVote', {
   localField: 'userId',
   foreignField: '_id',
   count: true,
