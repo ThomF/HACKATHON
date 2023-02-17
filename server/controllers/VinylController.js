@@ -8,10 +8,10 @@ export class VinylController extends BaseController {
         super('/api/vinyls')
         this.router
             .get('', this.getVinyl)
+            .get('/:vinylId', this.getVinylId)
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createVinyl)
     }
-
 
     async getVinyl(req, res, next) {
         try {
@@ -28,6 +28,16 @@ export class VinylController extends BaseController {
             req.body.creatorId = user.id
             const newVinyl = await vinylsServices.createVinyl(req.body)
             return res.send(newVinyl)
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    async getVinylId(req, res, next) {
+        try {
+            const vinylId = req.params.vinylId
+            const vinyl = await vinylsServices.getVinylById(vinylId)
+            return res.send(vinyl)
         } catch (error) {
             next(error)
         }
