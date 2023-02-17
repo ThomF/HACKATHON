@@ -13,7 +13,7 @@ body {
 
 .headercolor{
   background-color: #32373B;
-  
+
 }
 
 main {
@@ -22,8 +22,10 @@ main {
 
 
 // Vinyl Card
-.incard{
-  max-height: 10vh;
+.albumCover{
+  max-height: 12vh;
+  border-radius: 10px 0px 0px 10px;
+ 
   // width: 100px;
 
 }
@@ -35,7 +37,7 @@ main {
 .mycard{
   background-color: #e9ffeaac;
   border-radius: 10px;
-  height: 10vh;
+  height: 12vh;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
