@@ -2,10 +2,10 @@ import { appState } from "../AppState.js";
 import { server } from "./AxiosService.js";
 
 class LikesService {
-  async likeVinyl(vinylId) {
-    let res = await server.post('api/vinylVotes', { vinylId })
+  async likeVinyl(userId) {
+    let res = await server.post('api/vinylVotes', { userId })
     console.log("LIKING THIS VINYL", res.data)
-    let vinyl = appState.vinyls.find((vinyl) => vinyl.id == vinylId)
+    let vinyl = appState.vinyls.find((vinyl) => vinyl.id == userId)
     if (vinyl) {
       vinyl.vinylVoter++;
     }
