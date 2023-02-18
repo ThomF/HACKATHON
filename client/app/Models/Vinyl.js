@@ -32,7 +32,7 @@ export class Vinyl {
         </div>
         <div class="modal-footer d-flex justify-content-end">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary"><i class="mdi mdi-heart"></i></button>
+        <button type="button" onclick="" class="btn btn-primary"><i class="mdi mdi-heart"></i></button>
           <button type="button" class="btn btn-primary">Edit</button>
           <button type="button" class="btn btn-danger" onclick="app.vinylsController.deleteVinyl('${this.id}')">Delete</button>
         </div>
