@@ -16,7 +16,7 @@ export const VoterSchema = new Schema(
 VoterSchema.virtual('vinylVoter', {
   localField: 'userId',
   foreignField: '_id',
-  count: true,
+  justOne: true,
   ref: 'Account'
 }
 )
