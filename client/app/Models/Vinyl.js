@@ -1,17 +1,17 @@
 export class Vinyl {
-    constructor(data){
-        this.id = data.id
-        this.user = data.creator.name
-        this.title = data.title
-        this.mood = data.mood
-        this.albumCover = data.albumCover
-        this.artist = data.artist
-        this.description = data.description
-        this.vinylVoter = data.vinylVoter || 0
-    }
+  constructor(data) {
+    this.id = data.id
+    this.user = data.creator.name
+    this.title = data.title
+    this.mood = data.mood
+    this.albumCover = data.albumCover
+    this.artist = data.artist
+    this.description = data.description
+    this.vinylVoter = data.vinylVoter || 0
+  }
 
-    get ActiveVinylTemplate(){
-        return `
+  get ActiveVinylTemplate() {
+    return `
         <div class="modal-body">
           <div class="container-fluid">
 
@@ -24,7 +24,7 @@ export class Vinyl {
                 <div class="col-4">Artist: <h5>${this.artist}</h5></div>
                 <div class="col-4">Posted By: <h5>${this.user}</h5></div>
                 <div class="col-12 descriptionborder p-3"><h5>You should listen to this song when:</h5> ${this.description}</div>
-                <div class="col-12">Likes: <h5>${this.vinylVoter}</h5></div>
+                <div class="col-12">Likes: <h5 id="votes">${this.vinylVoter}</h5></div>
               </div>
 
             </div>
@@ -32,15 +32,15 @@ export class Vinyl {
         </div>
         <div class="modal-footer d-flex justify-content-end">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" onclick="" class="btn btn-primary"><i class="mdi mdi-heart"></i></button>
+        <button type="button" onclick="app.likesController.likeVinyl('${this.id}')" class="btn btn-primary"><i class="mdi mdi-heart"></i></button>
           <button type="button" class="btn btn-primary">Edit</button>
           <button type="button" class="btn btn-danger" onclick="app.vinylsController.deleteVinyl('${this.id}')">Delete</button>
         </div>
         `
-    }
+  }
 
-    get vinylTemplate(){
-        return`
+  get vinylTemplate() {
+    return `
         <div class="col-9 col-md-5 my-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="app.vinylsController.setActiveVinyl('${this.id}')">
           <div class="row mycard smallmycard">
             <div class="col-5 p-0">
@@ -58,11 +58,11 @@ export class Vinyl {
           </div>
         </div>
         `
-    }
+  }
 
 
-    static createVinylForm(){
-        return /*html*/ `
+  static createVinylForm() {
+    return /*html*/ `
         <div class="row my-2">
         <div class="col-md-8 col-11 m-auto">
           <form onsubmit="app.vinylsController.postVinyl()">
@@ -122,5 +122,5 @@ export class Vinyl {
       </div>
     </div>
         `
-    }
+  }
 }
