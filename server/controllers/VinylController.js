@@ -19,7 +19,6 @@ export class VinylController extends BaseController {
             .put(':vinylId', this.updateVinyl)
     }
 
-
     async getVinyl(req, res, next) {
         try {
             const vinyl = await vinylsServices.getVinyls()
@@ -82,6 +81,15 @@ export class VinylController extends BaseController {
         }
     }
 
-}
+    async updateVinyl(req, res, next) {
+        try {
+            const updateData = req.body
+            const userId = req.userInfo.id
+            const updatedVinyl = await vinylsServices.updateVinyl(updateData, userId)   
+            return res.send(updateData)
+        } catch (error) {
+            next(error)
+        }
+    }
 
 }

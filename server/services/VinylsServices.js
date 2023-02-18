@@ -1,4 +1,5 @@
 import { dbContext } from "../db/DbContext"
+import { VinylSchema } from "../models/Vinyl.js"
 import { BadRequest } from "../utils/Errors.js"
 
 class VinylsServices {
@@ -27,9 +28,29 @@ class VinylsServices {
 
     async deleteVinyl(vinylId, userId) {
         const vinyl = await this.getVinylById(vinylId)
-        if ()
+        if (vinyl.creatorId != userId){
+            throw new BadRequest("401 Unathorized")
+        }
             await vinyl.remove()
         return vinyl
+    }
+
+    async updateVinyl(updateData, userId) {
+        const vinyl = await dbContext.Vinyls.findById(updateData.id)
+        if(!vinyl){
+            throw new BadRequest("Vinyl not found")
+        }
+        if (vinyl.creatorId != userId){
+            throw new BadRequest("401 Unathorized Request")
+        }
+        vinyl.title = updateData.title || vinyl.title
+        vinyl.artist = updateData.artist || vinyl.artist
+        vinyl.description = updateData.description || vinyl.description
+        vinyl.mood = updateData.mood || vinyl.mood
+
+        await vinyl.save()
+        return vinyl
+        
     }
 
 }
