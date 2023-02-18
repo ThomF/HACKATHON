@@ -49,7 +49,7 @@ export class VinylController extends BaseController {
 
     async deleteVinyl(req, res, next) {
         try {
-            const vinylId = req.params.commentId
+            const vinylId = req.params.vinylId
             const vinyl = await vinylsServices.deleteVinyl(vinylId)
 
             return res.send(vinyl)

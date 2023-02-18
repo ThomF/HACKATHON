@@ -8,6 +8,7 @@ export class CommentsController extends BaseController {
     this.router
       .get('/:commentId', this.getCommentsByCommentId)
       .post('/:vinylId/comments', this.createComment)
+      .delete('/:vinylId/comments', this.removeComment)
 
   }
   async getCommentsByCommentId(req, res, next) {
@@ -30,6 +31,14 @@ export class CommentsController extends BaseController {
       const comment = await commentsService.postComment(commentData)
       return res.send(comment)
 
+    } catch (error) {
+      next(error)
+    }
+  }
+  async removeComment(req, res, next) {
+    try {
+      const commentId = req.params.commentId
+      const comment = await commentsService.removeComment(commentId)
     } catch (error) {
       next(error)
     }
