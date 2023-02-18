@@ -12,9 +12,9 @@ export class VinylController extends BaseController {
             .get('', this.getVinyl)
             .get('/:vinylId', this.getVinylId)
             .get('/:vinylId/voters', this.getVotersByVinylId)
-            .get('/:commentId', this.getCommentsByCommentId)
-            .get("/:vinylId/comments", this.getCommentByVinylId)
             .use(Auth0Provider.getAuthorizedUserInfo)
+            .get("/:vinylId/comments", this.getCommentByVinylId)
+
             .post('', this.createVinyl)
     }
 
@@ -27,16 +27,6 @@ export class VinylController extends BaseController {
         }
     }
 
-    async createVinyl(req, res, next) {
-        try {
-            const user = req.userInfo
-            req.body.creatorId = user.id
-            const newVinyl = await vinylsServices.createVinyl(req.body)
-            return res.send(newVinyl)
-        } catch (error) {
-            next(error)
-        }
-    }
 
     async getVinylId(req, res, next) {
         try {
@@ -57,14 +47,7 @@ export class VinylController extends BaseController {
         }
     }
 
-    async getCommentsByCommentId(req, res, next) {
-        try {
-            const comments = await commentsService.getCommentsByCommentId(req.params.commentId)
-            return res.send(comments)
-        } catch (error) {
-            next(error)
-        }
-    }
+
 
     async getCommentByVinylId(req, res, next) {
         try {
@@ -74,5 +57,18 @@ export class VinylController extends BaseController {
             next(error)
         }
     }
+
+    async createVinyl(req, res, next) {
+        try {
+            const user = req.userInfo
+            req.body.creatorId = user.id
+            const newVinyl = await vinylsServices.createVinyl(req.body)
+            return res.send(newVinyl)
+        } catch (error) {
+            next(error)
+        }
+    }
+
+
 
 }

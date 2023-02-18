@@ -2,7 +2,7 @@ import { dbContext } from "../db/DbContext.js"
 
 class CommentsService {
   async getCommentsByCommentId(commentId) {
-    const comments = await dbContext.Comments.find({ commentId }).populate('creator', 'name picture body')
+    const comments = await dbContext.Comments.findById(commentId).populate('')
     return comments
   }
 
