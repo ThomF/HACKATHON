@@ -3,6 +3,13 @@ import { Vinyl } from "../Models/Vinyl.js";
 import { server } from "./AxiosService.js";
 
 class VinylsService{
+    async setActiveVinyl(vinylId) {
+        console.log("VinylId", vinylId);
+        let vinyl = appState.vinyls.find(v => v.id == vinylId)
+        console.log("Setting Active Vinyl", vinyl);
+        appState.activeVinyl = vinyl;
+    }
+
     async postVinyl(vinylBody) {
         const res = await server.post('api/vinyls', vinylBody)
         console.log("Playing Vinyl", res.data);

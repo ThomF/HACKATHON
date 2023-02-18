@@ -23,7 +23,7 @@ main {
 
 // Vinyl Card
 .albumCover{
-  max-height: 12vh;
+  max-height: 20vh;
   border-radius: 10px 0px 0px 10px;
  
   // width: 100px;
@@ -37,7 +37,7 @@ main {
 .mycard{
   background-color: #e9ffeaac;
   border-radius: 10px;
-  height: 12vh;
+  height: 20vh;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -47,4 +47,22 @@ main {
 
 *{
   font-family: 'Didact Gothic', sans-serif;
+}
+
+
+@media screen and (max-width:425px){
+
+  .smallalbumCover{
+    max-height: 12vh;
+    border-radius: 10px 0px 0px 10px;
+  }
+
+  .smallmycard{
+    background-color: #e9ffeaac;
+    border-radius: 10px;
+    height: 12vh;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  
+  
 }

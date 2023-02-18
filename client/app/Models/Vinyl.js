@@ -7,15 +7,16 @@ export class Vinyl {
         this.albumCover = data.albumCover
         this.artist = data.artist
         this.description = data.description
+        this.vinylVoter = data.vinylVoter
     }
 
     get vinylTemplate(){
         return`
-        <div class="col-9 my-2">
-          <div class="row mycard">
+        <div class="col-9 col-md-5 my-2">
+          <div class="row mycard smallmycard">
             <div class="col-5 p-0">
               <div class="img-fluid">
-                <img class="albumCover" src="${this.albumCover}"
+                <img class="albumCover smallalbumCover" src="${this.albumCover}"
                   alt="picture">
               </div>
             </div>

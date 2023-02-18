@@ -13747,7 +13747,7 @@ main {
 }
 
 .albumCover {
-  max-height: 12vh;
+  max-height: 20vh;
   border-radius: 10px 0px 0px 10px;
 }
 
@@ -13758,7 +13758,7 @@ main {
 .mycard {
   background-color: rgba(233, 255, 234, 0.6745098039);
   border-radius: 10px;
-  height: 12vh;
+  height: 20vh;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -13768,6 +13768,19 @@ main {
 
 * {
   font-family: "Didact Gothic", sans-serif;
+}
+
+@media screen and (max-width: 425px) {
+  .smallalbumCover {
+    max-height: 12vh;
+    border-radius: 10px 0px 0px 10px;
+  }
+  .smallmycard {
+    background-color: rgba(233, 255, 234, 0.6745098039);
+    border-radius: 10px;
+    height: 12vh;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

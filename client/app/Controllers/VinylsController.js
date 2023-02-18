@@ -20,6 +20,15 @@ export class VinylsController{
 
     }
 
+    async setActiveVinyl(vinylId){
+        try {
+            await vinylsService.setActiveVinyl(vinylId);
+        } catch (error) {
+            console.log(error);
+            Pop.error(error.message)
+        }
+    }
+
     async postVinyl(){
         try {
             window.event?.preventDefault();
