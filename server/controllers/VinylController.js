@@ -16,7 +16,9 @@ export class VinylController extends BaseController {
             .get("/:vinylId/comments", this.getCommentByVinylId)
             .delete('/:vinylId', this.deleteVinyl)
             .post('', this.createVinyl)
+            .put(':vinylId', this.updateVinyl)
     }
+
 
     async getVinyl(req, res, next) {
         try {
@@ -49,8 +51,10 @@ export class VinylController extends BaseController {
 
     async deleteVinyl(req, res, next) {
         try {
+            const user = req.userInfo
+            const userId = user.id
             const vinylId = req.params.vinylId
-            const vinyl = await vinylsServices.deleteVinyl(vinylId)
+            const vinyl = await vinylsServices.deleteVinyl(vinylId, userId)
 
             return res.send(vinyl)
         } catch (error) {
@@ -78,6 +82,6 @@ export class VinylController extends BaseController {
         }
     }
 
-
+}
 
 }
