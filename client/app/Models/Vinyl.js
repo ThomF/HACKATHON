@@ -7,7 +7,7 @@ export class Vinyl {
         this.albumCover = data.albumCover
         this.artist = data.artist
         this.description = data.description
-        this.vinylVoter = data.vinylVoter
+        this.vinylVoter = data.vinylVoter || 0
     }
 
     get ActiveVinylTemplate(){
@@ -33,7 +33,7 @@ export class Vinyl {
         <div class="modal-footer d-flex justify-content-end">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Edit</button>
-          <button type="button" class="btn btn-danger">Delete</button>
+          <button type="button" class="btn btn-danger" onclick="app.vinylsController.deleteVinyl('${this.id}')">Delete</button>
         </div>
         `
     }

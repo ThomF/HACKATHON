@@ -30,6 +30,19 @@ export class VinylsController{
         setHTML('vinylForm', Vinyl.createVinylForm())
     }
 
+    async deleteVinyl(vinylId){
+        try {
+            if(await Pop.confirm()){
+                bootstrap.Modal.getOrCreateInstance('#staticBackdrop').hide()
+                await vinylsService.deleteVinyl(vinylId)
+
+            }
+        } catch (error) {
+            console.log(error);
+            Pop.error(error.message)
+        }
+    }
+
     async setActiveVinyl(vinylId){
         try {
             await vinylsService.setActiveVinyl(vinylId);

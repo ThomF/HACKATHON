@@ -3,6 +3,12 @@ import { Vinyl } from "../Models/Vinyl.js";
 import { server } from "./AxiosService.js";
 
 class VinylsService{
+    async deleteVinyl(vinylId) {
+        const res = await server.delete('api/vinyls/' + vinylId)
+        console.log("Removing Vinyl", res.data);
+        appState.vinyls = appState.vinyls.filter(vinyl => vinyl.id != vinylId)
+    }
+
     async setActiveVinyl(vinylId) {
         console.log("VinylId", vinylId);
         let vinyl = appState.vinyls.find(v => v.id == vinylId)
