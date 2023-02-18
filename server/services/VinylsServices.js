@@ -14,7 +14,8 @@ class VinylsServices {
     }
     async createVinyl(vinylData) {
         const newVinyl = await dbContext.Vinyls.create(vinylData)
-        // await newVinyl.populate('')
+        await newVinyl.populate('creator', 'name picture')
+
         return newVinyl
     }
 
