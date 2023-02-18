@@ -12,6 +12,8 @@ export class VinylController extends BaseController {
             .get('', this.getVinyl)
             .get('/:vinylId', this.getVinylId)
             .get('/:vinylId/voters', this.getVotersByVinylId)
+            .get('/:commentId', this.getCommentsByCommentId)
+            .get("/:vinylId/comments", this.getCommentByVinylId)
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createVinyl)
     }
@@ -59,6 +61,15 @@ export class VinylController extends BaseController {
         try {
             const comments = await commentsService.getCommentsByCommentId(req.params.commentId)
             return res.send(comments)
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    async getCommentByVinylId(req, res, next) {
+        try {
+            const commentId = await commentsService.getCommentByVinylId(req.params.commentId)
+            return res.send(commentId)
         } catch (error) {
             next(error)
         }
