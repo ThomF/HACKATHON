@@ -1,4 +1,5 @@
 import { dbContext } from "../db/DbContext.js"
+import { BadRequest } from "../utils/Errors.js"
 
 class CommentsService {
   async removeComment(commentId) {
@@ -21,6 +22,25 @@ class CommentsService {
     const foundComments = await dbContext.Comments.find(vinylId)
     return foundComments
   }
+
+  async updateComment(userId, updateData) {
+    const foundComment = await dbContext.Comments.findById(userId)
+
+    if (!foundComment) {
+      throw new BadRequest("404 Not Found")
+    }
+
+    if (foundComment.userId != userId) {
+      throw new BadRequest("401 Not Authorized")
+    }
+
+    foundComment.body = updateData.body || foundComment.body
+
+    await foundComment.save()
+    return foundComment
+
+  }
+
 }
 
 export const commentsService = new CommentsService()

@@ -13755,6 +13755,10 @@ main {
   font-family: "Roboto", sans-serif;
 }
 
+.loginbutton {
+  background-color: rgba(233, 255, 234, 0.6745098039);
+}
+
 .mycard {
   background-color: rgba(233, 255, 234, 0.6745098039);
   border-radius: 10px;
