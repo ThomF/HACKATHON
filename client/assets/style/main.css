@@ -13776,7 +13776,7 @@ main {
 
 @media screen and (max-width: 425px) {
   .smallalbumCover {
-    min-height: 12vh;
+    max-height: 12vh;
     border-radius: 10px 0px 0px 10px;
   }
   .smallmycard {
