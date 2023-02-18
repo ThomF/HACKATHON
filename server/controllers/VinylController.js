@@ -16,7 +16,7 @@ export class VinylController extends BaseController {
             .get("/:vinylId/comments", this.getCommentByVinylId)
             .delete('/:vinylId', this.deleteVinyl)
             .post('', this.createVinyl)
-            .put(':vinylId', this.updateVinyl)
+            .put('/:vinylId', this.updateVinyl)
     }
 
     async getVinyl(req, res, next) {
@@ -85,8 +85,8 @@ export class VinylController extends BaseController {
         try {
             const updateData = req.body
             const userId = req.userInfo.id
-            const updatedVinyl = await vinylsServices.updateVinyl(updateData, userId)   
-            return res.send(updateData)
+            const updatedVinyl = await vinylsServices.updateVinyl(updateData, userId)
+            return res.send(updatedVinyl)
         } catch (error) {
             next(error)
         }
