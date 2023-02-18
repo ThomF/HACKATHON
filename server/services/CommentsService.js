@@ -26,11 +26,11 @@ class CommentsService {
   async updateComment(userId, updateData) {
     const foundComment = await dbContext.Comments.findById(userId)
 
-    if(!foundComment){
+    if (!foundComment) {
       throw new BadRequest("404 Not Found")
     }
-    
-    if(foundComment?.userId != userId){
+
+    if (foundComment.userId != userId) {
       throw new BadRequest("401 Not Authorized")
     }
 
