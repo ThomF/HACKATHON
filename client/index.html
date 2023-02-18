@@ -128,15 +128,15 @@
   <footer class="container-fluid headercolor ">
     <div class="row text-center ">
       <button class="btn headercolor" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
-        aria-controls="offcanvasBottom"><i class=" text-light mdi mdi-chevron-up"></i></button>
+        aria-controls="offcanvasBottom" onclick="app.vinylsController.getVinylForm()"><i class=" text-light mdi mdi-chevron-up"></i></button>
     </div>
   </footer>
 
 
   <div class="offcanvas offcanvas-bottom headercolor text-light" tabindex="-1" id="offcanvasBottom"
     aria-labelledby="offcanvasBottomLabel">
-    <div class="container-fluid">
-      <div class="row my-2">
+    <div class="container-fluid" id="vinylForm">
+      <!-- <div class="row my-2">
         <div class="col-md-8 col-11 m-auto">
           <form>
             <div class="row">
@@ -191,7 +191,7 @@
             </div>
           </form>
         </div>
-      </div>
+      </div> -->
     </div>
 
 

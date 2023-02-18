@@ -13,6 +13,8 @@ class VinylsService{
     async postVinyl(vinylBody) {
         const res = await server.post('api/vinyls', vinylBody)
         console.log("Playing Vinyl", res.data);
+        appState.vinyls.push(new Vinyl(res.data))
+        appState.emit('vinyls')
     }
 
     async getVinyls() {
