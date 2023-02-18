@@ -12,7 +12,7 @@ export class Vinyl {
 
     get vinylTemplate(){
         return`
-        <div class="col-9 col-md-5 my-2">
+        <div class="col-9 col-md-5 my-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
           <div class="row mycard smallmycard">
             <div class="col-5 p-0">
               <div class="img-fluid">

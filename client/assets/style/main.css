@@ -13776,6 +13776,12 @@ main {
 
 .bigCover {
   height: 50vh;
+  width: 50vw;
+  border-radius: 10px;
+}
+
+.modalcolor {
+  background-color: #e9ffea;
 }
 
 @media screen and (max-width: 425px) {

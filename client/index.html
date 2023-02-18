@@ -36,7 +36,7 @@
   </style>
 </head>
 
-<body class="debug mybackground">
+<body class="debu mybackground">
   <header class="">
     <nav class="navbar navbar-dark navbar-expand headercolor text-light">
       <a class="navbar-brand" href="#">
@@ -144,9 +144,42 @@
   <footer class="container-fluid headercolor ">
     <div class="row text-center ">
       <button class="btn headercolor" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
-        aria-controls="offcanvasBottom" onclick="app.vinylsController.getVinylForm()"><i class=" text-light mdi mdi-chevron-up"></i></button>
+        aria-controls="offcanvasBottom" onclick="app.vinylsController.getVinylForm()"><i
+          class=" text-light mdi mdi-chevron-up"></i></button>
     </div>
   </footer>
+
+  <!-- NOTE MODAL Template -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content modalcolor">
+        <div class="modal-body">
+          <div class="container-fluid">
+
+            <div class="row justify-content-center">
+
+              <img class="img-fluid bigCover p-0 m-0"
+                src="https://upload.wikimedia.org/wikipedia/en/a/a7/Random_Access_Memories.jpg" alt="picture">
+              <div class="row py-1">
+                <div class="col-4">song title</div>
+                <div class="col-4">artist</div>
+                <div class="col-4">posted by</div>
+                <div class="col-12">Description</div>
+                <div class="col-12">Votes</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-end">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Edit</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <div class="offcanvas offcanvas-bottom headercolor text-light" tabindex="-1" id="offcanvasBottom"
@@ -216,9 +249,9 @@
 
       </div> -->
 
-      </div>
-
     </div>
+
+  </div>
 
 
   </div>
