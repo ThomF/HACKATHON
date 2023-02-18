@@ -14,7 +14,7 @@ export class VinylController extends BaseController {
             .get('/:vinylId/voters', this.getVotersByVinylId)
             .use(Auth0Provider.getAuthorizedUserInfo)
             .get("/:vinylId/comments", this.getCommentByVinylId)
-
+            .delete('/:vinylId', this.deleteVinyl)
             .post('', this.createVinyl)
     }
 
@@ -47,7 +47,16 @@ export class VinylController extends BaseController {
         }
     }
 
+    async deleteVinyl(req, res, next) {
+        try {
+            const vinylId = req.params.commentId
+            const vinyl = await vinylsServices.deleteVinyl(vinylId)
 
+            return res.send(vinyl)
+        } catch (error) {
+            next(error)
+        }
+    }
 
     async getCommentByVinylId(req, res, next) {
         try {

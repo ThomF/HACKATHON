@@ -25,6 +25,12 @@ class VinylsServices {
         return vinyls
     }
 
+    async deleteVinyl(vinylId) {
+        const vinyl = await this.getVinylById(vinylId)
+        await vinyl.remove()
+        return vinyl
+    }
+
 
 }
 
