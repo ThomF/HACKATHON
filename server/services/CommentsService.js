@@ -23,8 +23,8 @@ class CommentsService {
     return foundComments
   }
 
-  async updateComment(userId, updateData) {
-    const foundComment = await dbContext.Comments.findById(userId)
+  async updateComment(userId, updateData, commentId) {
+    const foundComment = await dbContext.Comments.findById(commentId)
 
     if (!foundComment) {
       throw new BadRequest("404 Not Found")

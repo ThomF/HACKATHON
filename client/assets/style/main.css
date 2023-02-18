@@ -13751,6 +13751,10 @@ main {
   border-radius: 10px 0px 0px 10px;
 }
 
+.logosize {
+  height: 4vh;
+}
+
 .headerfont {
   font-family: "Roboto", sans-serif;
 }

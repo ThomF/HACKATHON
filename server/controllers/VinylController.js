@@ -83,9 +83,10 @@ export class VinylController extends BaseController {
 
     async updateVinyl(req, res, next) {
         try {
+            const vinylId = req.params.vinylId
             const updateData = req.body
             const userId = req.userInfo.id
-            const updatedVinyl = await vinylsServices.updateVinyl(updateData, userId)
+            const updatedVinyl = await vinylsServices.updateVinyl(updateData, userId, vinylId)
             return res.send(updatedVinyl)
         } catch (error) {
             next(error)
