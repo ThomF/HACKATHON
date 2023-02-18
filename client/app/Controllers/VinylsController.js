@@ -3,36 +3,42 @@ import { Vinyl } from "../Models/Vinyl.js";
 import { vinylsService } from "../Services/VinylsService.js";
 import { getFormData } from "../Utils/FormHandler.js";
 import { Pop } from "../Utils/Pop.js";
-import { setHTML } from "../Utils/Writer.js";
+import { setHTML, setText } from "../Utils/Writer.js";
 
-function _drawVinyls(){
+function _drawVinyls() {
     let template = ''
     appState.vinyls.forEach(vinyl => template += vinyl.vinylTemplate)
     setHTML('vinyls', template);
 }
 
-function _drawActiveVinyl(){
+function _drawActiveVinyl() {
     setHTML('modalContent', appState.activeVinyl.ActiveVinylTemplate)
 }
 
-export class VinylsController{
+function _drawVote() {
+    console.log("adding like")
+    setText('vote', appState.votes)
+}
+
+export class VinylsController {
 
 
-    constructor(){
+    constructor() {
         console.log("Hello from the Vinyls Controller")
         this.getVinyls();
         appState.on('vinyls', _drawVinyls)
         appState.on('activeVinyl', _drawActiveVinyl)
+        appState.on('votes', _drawVote)
 
     }
 
-    getVinylForm(){
+    getVinylForm() {
         setHTML('vinylForm', Vinyl.createVinylForm())
     }
 
-    async deleteVinyl(vinylId){
+    async deleteVinyl(vinylId) {
         try {
-            if(await Pop.confirm()){
+            if (await Pop.confirm()) {
                 bootstrap.Modal.getOrCreateInstance('#staticBackdrop').hide()
                 await vinylsService.deleteVinyl(vinylId)
 
@@ -43,16 +49,17 @@ export class VinylsController{
         }
     }
 
-    async setActiveVinyl(vinylId){
+    async setActiveVinyl(vinylId) {
         try {
             await vinylsService.setActiveVinyl(vinylId);
+            _drawVote()
         } catch (error) {
             console.log(error);
             Pop.error(error.message)
         }
     }
 
-    async postVinyl(){
+    async postVinyl() {
         try {
             window.event.preventDefault();
             let form = window.event.target;
@@ -65,7 +72,7 @@ export class VinylsController{
         }
     }
 
-    async getVinyls(){
+    async getVinyls() {
         try {
             let vinyls = await vinylsService.getVinyls();
 

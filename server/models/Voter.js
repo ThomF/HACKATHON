@@ -3,8 +3,8 @@ import { Schema } from "mongoose";
 
 export const VoterSchema = new Schema(
   {
-    userId: { type: Schema.Types.ObjectId, required: true, ref: "Account" },
-    // vinylId: { type: Schema.Types.ObjectId, required: true, ref: 'Vinyl' }
+    // vinylId: { type: Schema.Types.ObjectId, required: true, ref: 'Vinyl' },
+    userId: { type: Schema.Types.ObjectId, required: true, ref: "Account" }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 

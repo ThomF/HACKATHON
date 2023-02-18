@@ -7,7 +7,7 @@ class VotersService {
         return voter
     }
     async getVotersByVinylId(vinylId) {
-        const voters = await dbContext.Voters.find({ vinylId }).populate('creator', 'name picture')
+        const voters = await dbContext.Voters.find({ vinylId }).populate('vinylVoter', 'name picture')
         return voters
     }
 

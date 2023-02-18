@@ -11,6 +11,7 @@ function _drawVote() {
 export class LikesController {
   constructor() {
     appState.on('votes', _drawVote)
+    this.drawVote
   }
 
   async likeVinyl(userId) {
@@ -19,5 +20,9 @@ export class LikesController {
     } catch (error) {
       Pop.error(error.message)
     }
+  }
+
+  drawVote() {
+    _drawVote()
   }
 }
