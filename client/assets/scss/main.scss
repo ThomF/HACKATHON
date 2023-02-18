@@ -24,12 +24,16 @@ main {
 // Vinyl Card
 .albumCover{
   max-height: 20vh;
+  width: 100%;
   border-radius: 10px 0px 0px 10px;
  
   // width: 100px;
 
 }
 
+.logosize{
+  height: 4vh;
+}
 
 
 .headerfont{
@@ -70,6 +74,7 @@ main {
 
   .smallalbumCover{
     max-height: 12vh;
+    width: 100%;
     border-radius: 10px 0px 0px 10px;
   }
 

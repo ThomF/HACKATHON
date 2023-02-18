@@ -13748,7 +13748,12 @@ main {
 
 .albumCover {
   max-height: 20vh;
+  width: 100%;
   border-radius: 10px 0px 0px 10px;
+}
+
+.logosize {
+  height: 4vh;
 }
 
 .headerfont {
@@ -13787,6 +13792,7 @@ main {
 @media screen and (max-width: 425px) {
   .smallalbumCover {
     max-height: 12vh;
+    width: 100%;
     border-radius: 10px 0px 0px 10px;
   }
   .smallmycard {
