@@ -1,6 +1,12 @@
 import { dbContext } from "../db/DbContext.js"
 
 class CommentsService {
+  async removeComment(commentId) {
+    const comment = await this.getCommentsByCommentId(commentId)
+    // @ts-ignore
+    await comment.remove()
+    return comment
+  }
   async getCommentsByCommentId(commentId) {
     const comments = await dbContext.Comments.findById(commentId).populate('')
     return comments
@@ -18,3 +24,5 @@ class CommentsService {
 }
 
 export const commentsService = new CommentsService()
+
+
