@@ -13774,6 +13774,10 @@ main {
   font-family: "Didact Gothic", sans-serif;
 }
 
+.bigCover {
+  height: 50vh;
+}
+
 @media screen and (max-width: 425px) {
   .smallalbumCover {
     max-height: 12vh;
