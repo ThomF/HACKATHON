@@ -59,4 +59,6 @@ VinylSchema.virtual('vinylComment', {
   count: true,
   ref: 'Vinyls'
 
-})
+},
+
+)

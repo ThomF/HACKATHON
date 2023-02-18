@@ -50,12 +50,13 @@ export class CommentsController extends BaseController {
   }
 
   async updateComment(req, res, next) {
-    
+
     try {
+      const commentId = req.params.commentId
       const userId = req.userInfo.id
       const updateData = req.body
-      const updatedComment = await commentsService.updateComment(userId, updateData)
-      
+      const updatedComment = await commentsService.updateComment(userId, updateData, commentId)
+
       return res.send(updatedComment)
     } catch (error) {
       next(error)
