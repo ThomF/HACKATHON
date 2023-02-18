@@ -20,11 +20,11 @@ export class Vinyl {
               <img class="img-fluid bigCover p-0 m-0"
                 src="${this.albumCover}" alt="picture">
               <div class="row py-1">
-                <div class="col-4">${this.title}</div>
-                <div class="col-4">${this.artist}</div>
-                <div class="col-4">${this.user}</div>
-                <div class="col-12">${this.description}</div>
-                <div class="col-12">${this.vinylVoter}</div>
+                <div class="col-4">Song Title: <h5>${this.title}</h5></div>
+                <div class="col-4">Artist: <h5>${this.artist}</h5></div>
+                <div class="col-4">Posted By: <h5>${this.user}</h5></div>
+                <div class="col-12 descriptionborder p-3"><h5>You should listen to this song when:</h5> ${this.description}</div>
+                <div class="col-12">Likes: <h5>${this.vinylVoter}</h5></div>
               </div>
 
             </div>
