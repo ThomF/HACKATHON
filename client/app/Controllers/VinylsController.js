@@ -11,6 +11,10 @@ function _drawVinyls(){
     setHTML('vinyls', template);
 }
 
+function _drawActiveVinyl(){
+    setHTML('modalContent', appState.activeVinyl.ActiveVinylTemplate)
+}
+
 export class VinylsController{
 
 
@@ -18,6 +22,7 @@ export class VinylsController{
         console.log("Hello from the Vinyls Controller")
         this.getVinyls();
         appState.on('vinyls', _drawVinyls)
+        appState.on('activeVinyl', _drawActiveVinyl)
 
     }
 
@@ -36,7 +41,7 @@ export class VinylsController{
 
     async postVinyl(){
         try {
-            window.event?.preventDefault();
+            window.event.preventDefault();
             let form = window.event.target;
             let vinylBody = getFormData(form)
             console.log("Playing Vinyl", vinylBody)

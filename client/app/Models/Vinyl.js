@@ -1,7 +1,7 @@
 export class Vinyl {
     constructor(data){
         this.id = data.id
-        this.user = data.user
+        this.user = data.creator.name
         this.title = data.title
         this.mood = data.mood
         this.albumCover = data.albumCover
@@ -10,9 +10,37 @@ export class Vinyl {
         this.vinylVoter = data.vinylVoter
     }
 
+    get ActiveVinylTemplate(){
+        return `
+        <div class="modal-body">
+          <div class="container-fluid">
+
+            <div class="row justify-content-center">
+
+              <img class="img-fluid bigCover p-0 m-0"
+                src="${this.albumCover}" alt="picture">
+              <div class="row py-1">
+                <div class="col-4">${this.title}</div>
+                <div class="col-4">${this.artist}</div>
+                <div class="col-4">${this.user}</div>
+                <div class="col-12">${this.description}</div>
+                <div class="col-12">${this.vinylVoter}</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-end">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Edit</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+        </div>
+        `
+    }
+
     get vinylTemplate(){
         return`
-        <div class="col-9 col-md-5 my-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <div class="col-9 col-md-5 my-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="app.vinylsController.setActiveVinyl('${this.id}')">
           <div class="row mycard smallmycard">
             <div class="col-5 p-0">
               <div class="img-fluid">
