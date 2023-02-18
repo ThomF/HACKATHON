@@ -34,6 +34,10 @@ main {
   font-family: 'Roboto', sans-serif;
 }
 
+.loginbutton{
+  background-color: #e9ffeaac;
+}
+
 .mycard{
   background-color: #e9ffeaac;
   border-radius: 10px;
@@ -53,7 +57,7 @@ main {
 @media screen and (max-width:425px){
 
   .smallalbumCover{
-    max-height: 12vh;
+    min-height: 12vh;
     border-radius: 10px 0px 0px 10px;
   }
 
