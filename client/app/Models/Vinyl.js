@@ -41,13 +41,13 @@ export class Vinyl {
               <div class="col-6">
                 <div class="form-group">
                   <label>Song Title</label>
-                  <input type="title" class="form-control"  name="title" id="title" placeholder="Song Title">
+                  <input type="title" required class="form-control"  name="title" id="title" placeholder="Song Title">
                 </div>
               </div>
               <div class="col-6">
                 <div class="form-group">
                   <label>Artist</label>
-                  <input type="artist" class="form-control" name="artist" id="artist" placeholder="Artist">
+                  <input type="artist" required class="form-control" name="artist" id="artist" placeholder="Artist">
                 </div>
               </div>
             </div>
@@ -55,13 +55,13 @@ export class Vinyl {
               <div class="col-6">
                 <div class="form-group">
                   <label>Album Cover URL</label>
-                  <input type="albumCover" class="form-control" name="albumCover" id="albumCover" placeholder="Album Cover URL">
+                  <input type="albumCover" required class="form-control" name="albumCover" id="albumCover" placeholder="Album Cover URL">
                 </div>
               </div>
               <div class="col-6">
                 <div class="form-group">
                   <label for="mood">Mood</label>
-                  <select class="form-control" name="mood" id="mood">
+                  <select required class="form-control" name="mood" id="mood">
                     <option value="happy">Happy</option>
                     <option value="sad">Sad</option>
                     <option value="angry">Angry</option>
@@ -80,8 +80,8 @@ export class Vinyl {
               </div>
             </div>
             <div class="form-group">
-              <label for="exampleFormControlTextarea1">When should you listen to this song?</label>
-              <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+              <label for="description">When should you listen to this song?</label>
+              <input required class="form-control" name="description" id="description"> 
             </div>
             <div class="row">
               <div class="col-6">
