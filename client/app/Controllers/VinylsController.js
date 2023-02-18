@@ -1,4 +1,5 @@
 import { appState } from "../AppState.js";
+import { Vinyl } from "../Models/Vinyl.js";
 import { vinylsService } from "../Services/VinylsService.js";
 import { getFormData } from "../Utils/FormHandler.js";
 import { Pop } from "../Utils/Pop.js";
@@ -18,6 +19,10 @@ export class VinylsController{
         this.getVinyls();
         appState.on('vinyls', _drawVinyls)
 
+    }
+
+    getVinylForm(){
+        setHTML('vinylForm', Vinyl.createVinylForm())
     }
 
     async setActiveVinyl(vinylId){
