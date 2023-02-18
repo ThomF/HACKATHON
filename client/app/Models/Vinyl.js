@@ -7,6 +7,7 @@ export class Vinyl {
         this.albumCover = data.albumCover
         this.artist = data.artist
         this.description = data.description
+        this.vinylVoter = data.vinylVoter
     }
 
     get vinylTemplate(){
