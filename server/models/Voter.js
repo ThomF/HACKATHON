@@ -1,10 +1,11 @@
 import { Schema } from "mongoose";
 
+let objectId = Schema.Types.ObjectId
 
 export const VoterSchema = new Schema(
   {
-    // vinylId: { type: Schema.Types.ObjectId, required: true, ref: 'Vinyl' },
-    userId: { type: Schema.Types.ObjectId, required: true, ref: "Account" }
+    vinylId: { type: objectId, required: true, ref: 'Vinyl' },
+    userId: { type: objectId, required: false, ref: "Account" }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 

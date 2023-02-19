@@ -27,6 +27,7 @@ export const VinylSchema = new Schema({
     ], required: true
   },
   albumCover: { type: String, required: true },
+  votes: { type: Number },
 
   //**** VIRTUAL PROPERTIES ****/
 

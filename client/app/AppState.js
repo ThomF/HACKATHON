@@ -14,7 +14,6 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/Vinyl.js').Vinyl[]} */
   vinyls = []
 
-  votes = []
 
   /** @type {import('./Models/Vinyl.js').Vinyl|null} */
   activeVinyl = null

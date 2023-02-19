@@ -16,8 +16,9 @@ function _drawActiveVinyl() {
 }
 
 function _drawVote() {
+    const votes = appState.vinyls
     console.log("adding like")
-    setText('vote', appState.votes)
+    setText('vote', votes)
 }
 
 export class VinylsController {
@@ -28,7 +29,7 @@ export class VinylsController {
         this.getVinyls();
         appState.on('vinyls', _drawVinyls)
         appState.on('activeVinyl', _drawActiveVinyl)
-        appState.on('votes', _drawVote)
+        // appState.on('vinyls', _drawVote)
 
     }
 
@@ -52,7 +53,6 @@ export class VinylsController {
     async setActiveVinyl(vinylId) {
         try {
             await vinylsService.setActiveVinyl(vinylId);
-            _drawVote()
         } catch (error) {
             console.log(error);
             Pop.error(error.message)
